@@ -91,10 +91,17 @@
     color: white;
     text-align: center;
     padding: 10px;
-    position: relative; /* Change from fixed to relative */
+    position: fixed; /* Change from fixed to relative */
     margin-top: 50px; /* Adds space above the footer */
     width: 100%;
 }
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -1; /* Pushes footer behind other elements */
+}
+
 
         footer a {
             color: white;
