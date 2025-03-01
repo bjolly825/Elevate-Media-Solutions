@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Elevate Media Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .dashboard-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #333;
+            color: white;
+        }
+        .unread-indicator {
+            color: red;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .logout, .reset, .pagination {
+            margin-top: 20px;
+        }
+        button {
+            padding: 5px 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #555;
+        }
+        textarea {
+            width: 100%;
+            height: 40px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <p><strong>Homepage View Count:</strong> <span id="viewCount">Loading...</span></p>
+        
+        <div class="reset">
+            <button onclick="resetViewCount()">Reset View Count</button>
+        </div>
+        
+        <h2>Contact Messages</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Message</th>
+                    <th>Timestamp</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="messagesTable">
+                <!-- Messages will be loaded here dynamically -->
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button onclick="prevPage()">Previous</button>
+            <span id="pageNumber">1</span>
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <div class="logout">
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const messagesPerPage = 5;
+
+        if (!sessionStorage.getItem("adminLoggedIn")) {
+            window.location.href = "admin.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let count = localStorage.getItem("visitCount") || 0;
+            document.getElementById("viewCount").innerText = count + " visits";
+
+            loadMessages();
+        });
+
+        function resetViewCount() {
+            localStorage.setItem("visitCount", 0);
+            document.getElementById("viewCount").innerText = "0 visits";
+        }
+
+        function loadMessages() {
+            let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+            let readMessages = JSON.parse(localStorage.getItem("readMessages")) || {};
+            let messagesTable = document.getElementById("messagesTable");
+            
+            messages.reverse(); 
+            messagesTable.innerHTML = "";
+            messages.forEach(msg => {
+                let isRead = readMessages[msg.timestamp] ? "✔" : "<span class='unread-indicator'>●</span>";
+                let readButton = readMessages[msg.timestamp] ? "" : `<button onclick=\"markAsRead('${msg.timestamp}')\">Mark Read</button>`;
+                let unreadButton = readMessages[msg.timestamp] ? `<button onclick=\"markAsUnread('${msg.timestamp}')\">Mark Unread</button>` : "";
+                let row = `
+                    <tr>
+                        <td>${isRead}</td>
+                        <td>${msg.name}</td>
+                        <td>${msg.email}</td>
+                        <td>${msg.phone}</td>
+                        <td>${msg.message}</td>
+                        <td>${msg.timestamp}</td>
+                        <td><textarea>${msg.notes || ""}</textarea></td>
+                        <td>
+                            ${readButton}
+                            ${unreadButton}
+                        </td>
+                    </tr>
+                `;
+                messagesTable.innerHTML += row;
+            });
+        }
+
+        function markAsRead(timestamp) {
+            let readMessages = JSON.parse(localStorage.getItem("readMessages")) || {};
+            readMessages[timestamp] = true;
+            localStorage.setItem("readMessages", JSON.stringify(readMessages));
+            loadMessages();
+        }
+
+        function markAsUnread(timestamp) {
+            let readMessages = JSON.parse(localStorage.getItem("readMessages")) || {};
+            delete readMessages[timestamp];
+            localStorage.setItem("readMessages", JSON.stringify(readMessages));
+            loadMessages();
+        }
+        function logout() {
+    sessionStorage.removeItem("adminLoggedIn"); // Remove login session
+    window.location.href = "index.html"; // Redirect to the homepage
+}
+
+    </script>
+
+</body>
+</html>

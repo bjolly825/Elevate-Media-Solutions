@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Elevate Media Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header h1 a {
+    color: white;
+    text-decoration: none;
+}
+header h1 a:hover {
+    opacity: 0.8; /* Slight fade effect on hover */
+}
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #444; /* Default background */
+            border-radius: 5px;
+        }
+        nav a.active {
+            background: #222; /* Darker background for active tab */
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Change from fixed to relative */
+    margin-top: 50px; /* Adds space above the footer */
+    width: 100%;
+}
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+        nav a:hover, .contact-form button:hover {
+    background: #555; /* Slightly darker */
+    transition: 0.3s;
+}
+        nav a:hover, .contact-form button:hover {
+    background: #555; /* Slightly darker */
+    transition: 0.3s;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Elevate Media Solutions</a></h1>
+    </header>
+    <nav>
+        <a href="index.html" id="home-link">Home</a>
+        <a href="portfolio.html" id="portfolio-link">Portfolio</a>
+        <a href="about.html" id="about-link">About Us</a>
+        <a href="contact.html" id="contact-link">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Who We Are</h2>
+        <p>Elevate Media Solutions is led by Brandon and Dayton, experts in sound design, video production, and media upgrades. With a passion for excellence, we specialize in transforming production environments for shows, churches, and events.</p>
+        <p>Our mission is to elevate every project to the highest standard, delivering professional solutions tailored to our clients' needs.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Elevate Media Solutions. All rights reserved.</p>
+        <p>
+            <a href="index.html">Home</a> | 
+            <a href="portfolio.html">Portfolio</a> | 
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        // Get the current page URL
+        const currentPage = window.location.pathname.split("/").pop();
+
+        // Map filenames to corresponding navigation links
+        const pageLinks = {
+            "index.html": "home-link",
+            "portfolio.html": "portfolio-link",
+            "about.html": "about-link",
+            "contact.html": "contact-link"
+        };
+
+        // Apply active class to the correct navigation link
+        if (pageLinks[currentPage]) {
+            document.getElementById(pageLinks[currentPage]).classList.add("active");
+        }
+    </script>
+</body>
+</html>

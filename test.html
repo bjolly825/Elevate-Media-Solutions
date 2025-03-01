@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Media Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        /* Header Styling */
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+        }
+        
+        /* Logo Styling */
+        .logo {
+            width: 150px; /* Adjust as needed */
+            height: auto; /* Keeps aspect ratio */
+        }
+        
+        /* Navigation Container Centered */
+        .nav-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+        }
+        
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background: #444;
+        }
+
+        nav a.active {
+            background: #222;
+            font-weight: bold;
+        }
+        
+        /* Footer Styling */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Menu (Hidden by Default) */
+        .hamburger-menu {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-container {
+                position: static;
+                transform: none;
+                justify-content: center;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #444;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            nav a {
+                display: block;
+                padding: 15px;
+                width: 100%;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .hamburger-menu {
+                display: block;
+            }
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .services, .testimonies {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo on the left -->
+        <a href="index.html">
+            <img class="logo" src="images/logo.png" alt="Elevate Media Solutions">
+        </a>
+        
+        <!-- Navigation Container to Center the Nav Links -->
+        <div class="nav-container">
+            <nav class="nav-links">
+                <a href="index.html" id="home-link">Home</a>
+                <a href="portfolio.html" id="portfolio-link">Portfolio</a>
+                <a href="about.html" id="about-link">About Us</a>
+                <a href="contact.html" id="contact-link">Contact</a>
+                <a href="test.html" id="test-link">Test</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- What We Offer Section -->
+    <section class="services">
+        <h2>What We Offer</h2>
+        <p><strong>Sound System Design & Installation:</strong> High-quality audio solutions for any venue.</p>
+        <p><strong>Video Production & Installation:</strong> Cutting-edge video setups for live events.</p>
+        <p><strong>Lighting Solutions:</strong> Custom lighting for stages, venues, and events.</p>
+        <p><strong>Live Event Production:</strong> Full-service sound, video, and lighting coordination.</p>
+        <p><strong>Stage & Set Design:</strong> Professional stage and set designs tailored to your vision.</p>
+        <p><strong>Consultation & Training:</strong> Training for your team to maximize technology use.</p>
+    </section>
+
+    <!-- Testimonies Section -->
+    <section class="testimonies">
+        <h2>Testimonies</h2>
+        <blockquote>
+            "Elevate Media Solutions transformed our church production. We couldn't be more grateful!"
+            <footer>- Client Name</footer>
+        </blockquote>
+        <blockquote>
+            "Professional, efficient, and top-tier service. Highly recommend them!"
+            <footer>- Client Name</footer>
+        </blockquote>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Elevate Media Solutions. All rights reserved.</p>
+        <p>
+            <a href="index.html">Home</a> | 
+            <a href="portfolio.html">Portfolio</a> | 
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+    </footer>
+    
+    <script>
+        // Get the current page URL
+        const currentPage = window.location.pathname.split("/").pop();
+
+        // Map filenames to corresponding navigation links
+        const pageLinks = {
+            "index.html": "home-link",
+            "portfolio.html": "portfolio-link",
+            "about.html": "about-link",
+            "contact.html": "contact-link",
+            "test.html": "test-link"
+        };
+
+        // Apply active class to the correct navigation link
+        if (pageLinks[currentPage]) {
+            document.getElementById(pageLinks[currentPage]).classList.add("active");
+        }
+    </script>
+</body>
+</html>

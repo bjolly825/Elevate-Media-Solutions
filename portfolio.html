@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Elevate Media Solutions</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    opacity: 0.8; /* Slight fade effect on hover */
+}
+        header {background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #444; /* Default background */
+            border-radius: 5px;
+        }
+        nav a.active {
+            background: #222; /* Darker background for active tab */
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .project {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .project img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta a {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Change from fixed to relative */
+    margin-top: 25 px; /* Adds space above the footer */
+    width: 100%;
+}
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+        nav a:hover, .contact-form button:hover {
+    background: #555; /* Slightly darker */
+    transition: 0.3s;
+}
+        nav a:hover, .contact-form button:hover {
+    background: #555; /* Slightly darker */
+    transition: 0.3s;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Elevate Media Solutions</a></h1>
+    </header>
+    <nav>
+        <a href="index.html" id="home-link">Home</a>
+        <a href="portfolio.html" id="portfolio-link">Portfolio</a>
+        <a href="about.html" id="about-link">About Us</a>
+        <a href="contact.html" id="contact-link">Contact</a>
+        <a href="test.html" id="test-link">Test</a>
+    </nav>
+
+    <section>
+        <h2>Explore Our Work</h2>
+        <p>We specialize in sound design, video production, stage upgrades, and event production. Here are some of our recent projects:</p>
+    </section>
+
+    <section class="project">
+        <h3>Project 1: Modern Church Sound System Upgrade</h3>
+        <img src="images/stage.jpg" alt="Church Sound Upgrade">
+        <p>We transformed the sound experience for a local church, providing state-of-the-art audio clarity and seamless integration.</p>
+    </section>
+
+    <section class="project">
+        <h3>Project 2: Live Concert Video Production</h3>
+        <img src="images/stage.jpg" alt="Live Concert Production">
+        <p>Our team handled multi-camera video production for a high-energy live concert, delivering an immersive experience.</p>
+    </section>
+
+    <section class="project">
+        <h3>Project 3: Stage Lighting Transformation</h3>
+        <img src="images/stage.jpg" alt="Stage Lighting">
+        <p>We revamped an event stage with dynamic lighting solutions, enhancing the visual impact for live audiences.</p>
+    </section>
+
+    <section class="cta">
+        <h2>Want to elevate your media production?</h2>
+        <a href="contact.html">Contact Us</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Elevate Media Solutions. All rights reserved.</p>
+        <p>
+            <a href="index.html">Home</a> | 
+            <a href="portfolio.html">Portfolio</a> | 
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        // Get the current page URL
+        const currentPage = window.location.pathname.split("/").pop();
+
+        // Map filenames to corresponding navigation links
+        const pageLinks = {
+            "index.html": "home-link",
+            "portfolio.html": "portfolio-link",
+            "about.html": "about-link",
+            "contact.html": "contact-link"
+        };
+
+        // Apply active class to the correct navigation link
+        if (pageLinks[currentPage]) {
+            document.getElementById(pageLinks[currentPage]).classList.add("active");
+        }
+    </script>
+</body>
+</html>

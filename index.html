@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Media Solutions</title>
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #444; /* Default background */
+            border-radius: 5px;
+        }
+        nav a.active {
+            background: #222; /* Darker background for active tab */
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .services, .testimonies {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        nav a:hover, .contact-form button:hover {
+            background: #555; /* Slightly darker */
+            transition: 0.3s;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .hidden-admin {
+    color: transparent; /* Makes text invisible */
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    font-size: 0; /* Shrinks it so it doesn’t affect layout */
+    padding: 0;
+    margin: 0;
+    width: 20px; /* Small clickable area */
+    height: 15px;
+    display: inline-block; /* Keeps it inline */
+}
+
+/* Show Admin button only when hovering over its area */
+.hidden-admin:hover {
+    color: #334; /* Visible color */
+    font-size: 10px; /* Restores normal size */
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+}  
+footer {
+    position: relative; /* Instead of fixed */
+    text-align: center;
+    padding: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Elevate Media Solutions</h1>
+    </header>
+    <nav>
+        <a href="index.html" id="home-link">Home</a>
+        <a href="portfolio.html" id="portfolio-link">Portfolio</a>
+        <a href="about.html" id="about-link">About Us</a>
+        <a href="contact.html" id="contact-link">Contact</a>
+        <a href="test.html" id="test-link">Test</a>
+    </nav>
+
+    
+
+    <!-- What We Offer Section -->
+<section class="services">
+    <h2>What We Offer</h2>
+    <ul></ul>
+    <p><strong>Sound System Design & Installation:</strong> We provide high-quality audio solutions for all types of venues, ensuring clear, powerful sound that elevates any event or service.</p>
+    <p><strong>Video Production & Installation:</strong> From cameras to screens, we deliver cutting-edge video production setups designed to enhance live events, ensuring crisp and clear visuals.</p>
+    <p><strong>Lighting Solutions:</strong> Our custom lighting setups are designed for stages, venues, and events, adding ambiance, focus, and dramatic effects to enhance the visual experience.</p>
+    <p><strong>Live Event Production:</strong> We offer full-service production for live events, coordinating sound, video, and lighting seamlessly to create an unforgettable experience for your audience.</p>
+    <p><strong>Stage & Set Design:</strong> Our creative design and setup of stages and sets provide the perfect backdrop for any performance, tailored to fit your vision and needs.</p>
+    <p><strong>Consultation & Training:</strong> In addition to providing state-of-the-art equipment, we offer expert consultation and training to ensure your team can make the most of the technology available to them.</p>
+    <ul></ul>
+</section>
+
+
+
+    <!-- Testimonies Section -->
+    <section class="testimonies">
+        <h2>Testimonies</h2>
+        <blockquote>
+            "Elevate Media Solutions transformed our church production. We couldn't be more grateful!"
+            <footer>- Client Name</footer>
+        </blockquote>
+        <blockquote>
+            "Professional, efficient, and top-tier service. Highly recommend them!"
+            <footer>- Client Name</footer>
+        </blockquote>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Elevate Media Solutions. All rights reserved.</p>
+        <p>
+            <a href="index.html">Home</a> | 
+            <a href="portfolio.html">Portfolio</a> | 
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact</a> 
+            <a href="admin.html" class="hidden-admin">| Admin</a>
+        </p>
+    </footer>
+
+    <script>
+        // Get the current page URL
+        const currentPage = window.location.pathname.split("/").pop();
+
+        // Map filenames to corresponding navigation links
+        const pageLinks = {
+            "index.html": "home-link",
+            "portfolio.html": "portfolio-link",
+            "about.html": "about-link",
+            "contact.html": "contact-link"
+        };
+
+        // Apply active class to the correct navigation link
+        if (pageLinks[currentPage]) {
+            document.getElementById(pageLinks[currentPage]).classList.add("active");
+        }
+    </script>
+    <script>
+    // Check if there's already a visit count stored
+    if (localStorage.getItem("visitCount")) {
+        // If exists, increment the count
+        let visitCount = parseInt(localStorage.getItem("visitCount"));
+        visitCount++;
+        localStorage.setItem("visitCount", visitCount);
+    } else {
+        // If no count exists, start at 1
+        localStorage.setItem("visitCount", 1);
+    }
+    </script>
+</body>
+</html>
